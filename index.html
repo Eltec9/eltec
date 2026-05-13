@@ -1,175 +1,481 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eltec - Accesorios de Tecnología</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
     <style>
-        .hero { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 100px 0; }
-        .product-card { transition: transform 0.3s; }
-        .product-card:hover { transform: translateY(-10px); }
-        footer { background-color: #343a40; color: white; padding: 20px 0; }
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+        }
+
+        .product-card {
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .card-img-top {
+            height: 220px;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px 0;
+        }
     </style>
 </head>
+
 <body>
+
+    <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container">
-            <a class="navbar-brand" href="#"><i class="fas fa-mobile-alt"></i> Eltec</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-mobile-alt"></i> Eltec
+            </a>
+
+            <button class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav">
+
                 <span class="navbar-toggler-icon"></span>
             </button>
+
             <div class="collapse navbar-collapse" id="navbarNav">
+
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#home">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#products">Productos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#gallery">Galería</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#about">Acerca de</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#contact">Contacto</a></li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Inicio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#products">Productos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#gallery">Galería</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Acerca de</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contacto</a>
+                    </li>
+
                 </ul>
             </div>
         </div>
     </nav>
 
+    <!-- HERO -->
     <section id="home" class="hero text-center">
         <div class="container">
+
             <h1 class="display-4">Bienvenido a Eltec</h1>
-            <p class="lead">Accesorios tecnológicos de vanguardia para potenciar tu experiencia digital.</p>
-            <a href="#products" class="btn btn-light btn-lg">Ver Productos</a>
+
+            <p class="lead">
+                Productos electrónicos.
+            </p>
+
+            <a href="#products" class="btn btn-light btn-lg">
+                Ver Productos
+            </a>
+
         </div>
     </section>
 
+    <!-- PRODUCTOS -->
     <section id="products" class="py-5 bg-light">
+
         <div class="container">
-            <h2 class="text-center mb-5">Nuestros Productos</h2>
-            <div class="row">
-                <div class="col-md-3 mb-4">
+
+            <h2 class="text-center mb-5">
+                Nuestros Productos
+            </h2>
+
+            <div class="row g-4">
+
+                <!-- Producto 1 -->
+                <div class="col-md-3">
                     <div class="card product-card h-100">
-                        <img src="https://via.placeholder.com/300x200?text=Cargador+Rapido" class="card-img-top" alt="Cargador Rápido">
-                        <div class="card-body">
-                            <h5 class="card-title">Cargadores Rápidos</h5>
-                            <p class="card-text">Carga tu dispositivo en minutos con tecnología de carga rápida.</p>
-                            <p class="text-primary fw-bold">$20</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+
+                        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQBXET45-uqXjkiQJoCCCGS0v7lGsyfURBE1w&s"
+                            class="card-img-top"
+                            alt="Velador 6 en 1">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title">
+                                Velador 6 en 1
+                            </h5>
+
+                            <p class="card-text">
+                                Combina parlante, radio, despertador,
+                                cargador, iluminación y reloj.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                $24.800
+                            </p>
+
+                            <a href="#" class="btn btn-primary mt-auto">
+                                Comprar
+                            </a>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+
+                <!-- Producto 2 -->
+                <div class="col-md-3">
                     <div class="card product-card h-100">
-                        <img src="https://via.placeholder.com/300x200?text=Auriculares" class="card-img-top" alt="Auriculares">
-                        <div class="card-body">
-                            <h5 class="card-title">Auriculares Inalámbricos</h5>
-                            <p class="card-text">Calidad de sonido excepcional con cancelación de ruido.</p>
-                            <p class="text-primary fw-bold">$50</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+
+                        <img src="https://alltek.ar/img/Public/1065/59216-producto-wireless-5-3-242936fc6531af3c0417119866905367-1024-1024.jpg"
+                            class="card-img-top"
+                            alt="Auriculares">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title">
+                                Auriculares Inalámbricos
+                            </h5>
+
+                            <p class="card-text">
+                                Calidad de sonido excepcional.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                $7.500
+                            </p>
+
+                            <a href="#" class="btn btn-primary mt-auto">
+                                Comprar
+                            </a>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+
+                <!-- Producto 3 -->
+                <div class="col-md-3">
                     <div class="card product-card h-100">
-                        <img src="https://via.placeholder.com/300x200?text=Funda" class="card-img-top" alt="Funda">
-                        <div class="card-body">
-                            <h5 class="card-title">Fundas para Teléfonos</h5>
-                            <p class="card-text">Protege tu dispositivo con estilo y durabilidad.</p>
-                            <p class="text-primary fw-bold">$15</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+
+                        <img src="https://images.bidcom.com.ar/resize?src=https://static.bidcom.com.ar/publicacionesML/productos/BALANZA3/1000x1000-BALANZA3.jpg&h=400&q=100"
+                            class="card-img-top"
+                            alt="Balanza de cocina">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title">
+                                Balanza de Cocina
+                            </h5>
+
+                            <p class="card-text">
+                                No te quedes sin la tuya.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                $7.000
+                            </p>
+
+                            <a href="#" class="btn btn-primary mt-auto">
+                                Comprar
+                            </a>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 mb-4">
+
+                <!-- Producto 4 -->
+                <div class="col-md-3">
                     <div class="card product-card h-100">
-                        <img src="https://via.placeholder.com/300x200?text=Bateria" class="card-img-top" alt="Batería">
-                        <div class="card-body">
-                            <h5 class="card-title">Baterías Externas</h5>
-                            <p class="card-text">Mantén la energía todo el día con baterías de alta capacidad.</p>
-                            <p class="text-primary fw-bold">$30</p>
-                            <a href="#" class="btn btn-primary">Comprar</a>
+
+                        <img src="https://assets.adidas.com/images/w_600,f_auto,q_auto/85b5779aefa848be98681d87e1e3d75c_faec/Pelota_Trionda_Pro_Copa_Mundial_de_la_FIFA_26tm_Blanco_JD8021_db01_00_standard.jpg"
+                            class="card-img-top"
+                            alt="Pelota Trionda Pro">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title">
+                                Pelota Trionda Pro
+                            </h5>
+
+                            <p class="card-text">
+                                Pelota oficial del mundial.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                $18.000
+                            </p>
+
+                            <a href="#" class="btn btn-primary mt-auto">
+                                Comprar
+                            </a>
+
                         </div>
                     </div>
                 </div>
+
+                <!-- Producto 5 -->
+                <div class="col-md-3">
+                    <div class="card product-card h-100">
+
+                        <img src="https://electrostore.com.ar/wp-content/uploads/2020/03/AURICULAR-VINCHA-BLUETOOTH-P47-BLANCO-YV0002.jpg"
+                            class="card-img-top"
+                            alt="Parlante Bluetooth">
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title">
+                                Auriculares P47
+                            </h5>
+
+                            <p class="card-text">
+                                Sonido potente y batería de larga duración.
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                $7.500
+                            </p>
+
+                            <a href="#" class="btn btn-primary mt-auto">
+                                Comprar
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Producto 6 -->
+                <div class="col-md-3">
+                    <div class="card product-card h-100">
+
+                        <img src="https://cellplay.com.ar/img/Public/1081-producto-7a546dc7c5d0e3dd3b1ce0eaca-2910.jpeg"
+                            class="card-img-top"
+                            alt="Auriculares inalambricos P9"
+                        
+
+                        <div class="card-body d-flex flex-column">
+
+                            <h5 class="card-title">
+                                Auriculares inalambricos P9
+                            </h5>
+
+                            <p class="card-text">
+                                Ideal para escuchar musica
+                            </p>
+
+                            <p class="text-primary fw-bold">
+                                $9.000
+                            </p>
+
+                            <a href="#" class="btn btn-primary mt-auto">
+                                Comprar
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
+    <!-- GALERÍA -->
     <section id="gallery" class="py-5">
+
         <div class="container">
-            <h2 class="text-center mb-5">Galería de Productos</h2>
+
+            <h2 class="text-center mb-5">
+                Galería de Productos
+            </h2>
+
             <div class="row">
+
                 <div class="col-md-4 mb-3">
-                    <img src="https://via.placeholder.com/400x300?text=Producto+1" class="img-fluid rounded" alt="Producto 1">
+                    <img src="https://via.placeholder.com/400x300?text=Producto+1"
+                        class="img-fluid rounded"
+                        alt="Producto 1">
                 </div>
+
                 <div class="col-md-4 mb-3">
-                    <img src="https://via.placeholder.com/400x300?text=Producto+2" class="img-fluid rounded" alt="Producto 2">
+                    <img src="https://via.placeholder.com/400x300?text=Producto+2"
+                        class="img-fluid rounded"
+                        alt="Producto 2">
                 </div>
+
                 <div class="col-md-4 mb-3">
-                    <img src="https://via.placeholder.com/400x300?text=Producto+3" class="img-fluid rounded" alt="Producto 3">
+                    <img src="https://via.placeholder.com/400x300?text=Producto+3"
+                        class="img-fluid rounded"
+                        alt="Producto 3">
                 </div>
+
             </div>
         </div>
     </section>
 
+    <!-- ABOUT -->
     <section id="about" class="py-5 bg-light">
+
         <div class="container">
+
             <div class="row">
+
                 <div class="col-md-6">
+
                     <h2>Acerca de Eltec</h2>
-                    <p>Somos una empresa dedicada a ofrecer accesorios tecnológicos de alta calidad. Nuestro compromiso es mejorar tu experiencia con tus dispositivos mediante productos innovadores y confiables.</p>
+
+                    <p>
+                        Somos una empresa dedicada a ofrecer accesorios
+                        tecnológicos de alta calidad.
+                    </p>
+
                     <ul>
                         <li>Calidad garantizada</li>
                         <li>Envío rápido</li>
                         <li>Soporte al cliente 24/7</li>
                     </ul>
+
                 </div>
+
                 <div class="col-md-6">
-                    <img src="https://via.placeholder.com/500x300?text=Equipo+Eltec" class="img-fluid rounded" alt="Equipo Eltec">
+
+                    <img src="https://via.placeholder.com/500x300?text=Equipo+Eltec"
+                        class="img-fluid rounded"
+                        alt="Equipo Eltec">
+
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- CONTACTO -->
     <section id="contact" class="py-5">
+
         <div class="container">
-            <h2 class="text-center mb-5">Contacto</h2>
+
+            <h2 class="text-center mb-5">
+                Contacto
+            </h2>
+
             <div class="row">
+
                 <div class="col-md-6">
+
                     <h4>Información de Contacto</h4>
-                    <p><i class="fas fa-envelope"></i> info@eltec.com</p>
-                    <p><i class="fas fa-phone"></i> +123 456 7890</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Calle Tecnología 123, Ciudad</p>
+
+                    <p>
+                        <i class="fas fa-envelope"></i>
+                        eltec.olav@gmail.com
+                    </p>
+
+                    <p>
+                        <i class="fas fa-phone"></i>
+                        +54 9 2284 308877
+                    </p>
+
+                    <p>
+                        <i class="fas fa-map-marker-alt"></i>
+                        Calle Facundo Quiroga 1 casa 37
+                    </p>
+
                 </div>
+
                 <div class="col-md-6">
+
                     <form>
+
                         <div class="mb-3">
-                            <label for="name" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="name" required>
+                            <label for="name" class="form-label">
+                                Nombre
+                            </label>
+
+                            <input type="text"
+                                class="form-control"
+                                id="name"
+                                required>
                         </div>
+
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" required>
+                            <label for="email" class="form-label">
+                                Email
+                            </label>
+
+                            <input type="email"
+                                class="form-control"
+                                id="email"
+                                required>
                         </div>
+
                         <div class="mb-3">
-                            <label for="message" class="form-label">Mensaje</label>
-                            <textarea class="form-control" id="message" rows="4" required></textarea>
+                            <label for="message" class="form-label">
+                                Mensaje
+                            </label>
+
+                            <textarea class="form-control"
+                                id="message"
+                                rows="4"
+                                required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">Enviar</button>
+
+                        <button type="submit" class="btn btn-primary">
+                            Enviar
+                        </button>
+
                     </form>
+
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- FOOTER -->
     <footer>
+
         <div class="container text-center">
-            <p>&copy; 2026 Eltec. Todos los derechos reservados.</p>
+
+            <p>
+                &copy; 2026 Eltec. Todos los derechos reservados.
+            </p>
+
             <div>
-                <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+
+                <a href="#" class="text-white me-3">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#" class="text-white me-3">
+                    <i class="fab fa-twitter"></i>
+                </a>
+
+                <a href="#" class="text-white">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
             </div>
         </div>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
