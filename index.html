@@ -330,18 +330,16 @@ function send(){
 let nombre = document.getElementById("name").value;
 let apellido = document.getElementById("lastname").value;
 
-let msg = `🛒 Pedido Eltec\n`;
-msg += `Cliente: ${nombre} ${apellido}\n`;
+let msg = `🛒 Pedido Eltec%0A`;
+msg += `Cliente: ${nombre} ${apellido}%0A`;
 
 cart.forEach(i=>{
-msg += `- ${i.name} x${i.qty} ($${formatPrice(i.price*i.qty)})\n`;
+msg += `- ${i.name} x${i.qty} ($${formatPrice(i.price*i.qty)})%0A`;
 });
 
 msg += `Total: $${formatPrice(cart.reduce((a,b)=>a+b.price*b.qty,0))}`;
 
-let url = "https://wa.me/5492284308877?text=" + encodeURIComponent(msg);
-
-window.open(url);
+window.open(`https://wa.me/5492284308877?text=${msg}`);
 }
 
 function toggleCart(){
