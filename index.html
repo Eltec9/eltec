@@ -30,6 +30,9 @@
 
 #search{max-width:400px;}
 
+.category-btn{margin-right:8px;margin-bottom:8px;}
+.category-btn.active{background:#0d6efd;color:white;border-color:#0d6efd;}
+
 .qty-input{width:70px;margin:auto;text-align:center;}
 .price{color:#1e6fff;font-weight:bold;font-size:18px;}
 
@@ -105,6 +108,7 @@ body.cart-open .carousel-control-next {
 
 <!-- MENU -->
 <div class="container my-4">
+  <div id="categoryBar" class="mb-3"></div>
 <h3>Menú</h3>
 <input type="text" id="search" class="form-control" placeholder="Buscar producto..." onkeyup="buscar()">
 </div>
@@ -1332,6 +1336,74 @@ const discountCodeInput = document.getElementById("discountCode");
 
 discountMessage.hidden = true;
 discountMessage.textContent = "";
+let currentCategory = "Todos";
+
+document.querySelectorAll(".product-card").forEach(card=>{
+  const nombre = card.querySelector("h6").textContent.trim();
+  card.dataset.category = getCategory(nombre);
+});
+
+function getCategory(name){
+  let lower = name.toLowerCase();
+  if(lower.includes("balanza")) return "Balanzas";
+  if(lower.includes("cuchilla")) return "Cuchillas";
+  if(lower.includes("linterna")) return "Linternas";
+  if(lower.includes("auricula") || lower.includes("auricular")) return "Auriculares";
+  if(lower.includes("mouse")) return "Mouses";
+  if(lower.includes("joystick")) return "Gaming";
+  if(lower.includes("cable") || lower.includes("usb") || lower.includes("hdmi") || lower.includes("cargador")) return "Cables";
+  if(lower.includes("parlante") || lower.includes("camara") || lower.includes("microfono")) return "Audio";
+  if(lower.includes("pistola") || lower.includes("cortadora") || lower.includes("termo") || lower.includes("estufa") || lower.includes("termomate")) return "Electrónica";
+  if(lower.includes("lampara") || lower.includes("tira led")) return "Iluminación";
+  if(lower.includes("pilas")) return "Accesorios";
+  return "Otros";
+}
+
+function buildCategoryButtons(){
+  const cards = Array.from(document.querySelectorAll(".product-card"));
+  const counts = cards.reduce((acc, card)=>{
+    const cat = card.dataset.category;
+    acc[cat] = (acc[cat]||0)+1;
+    return acc;
+  }, {});
+  counts["Todos"] = cards.length;
+  const order = ["Todos","Balanzas","Cuchillas","Linternas","Auriculares","Cables","Audio","Iluminación","Electrónica","Accesorios","Gaming","Otros"];
+  const categories = order.filter(c=>counts[c]).concat(Object.keys(counts).filter(c=>!order.includes(c)));
+  const bar = document.getElementById("categoryBar");
+  bar.innerHTML = "";
+  categories.forEach(cat=>{
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "btn btn-outline-primary category-btn" + (cat===currentCategory ? " active" : "");
+    btn.textContent = `${cat} (${counts[cat]||0})`;
+    btn.onclick = ()=>{
+      currentCategory = cat;
+      updateCategoryButtons();
+      filterProducts();
+    };
+    bar.appendChild(btn);
+  });
+}
+
+function updateCategoryButtons(){
+  document.querySelectorAll("#categoryBar .category-btn").forEach(btn=>{
+    const text = btn.textContent.split(" (")[0];
+    btn.classList.toggle("active", text===currentCategory);
+  });
+}
+
+function filterProducts(){
+  const input = document.getElementById("search").value.toLowerCase();
+  document.querySelectorAll(".product-card").forEach(card=>{
+    const nombre = card.querySelector("h6").textContent.toLowerCase();
+    const category = card.dataset.category;
+    const matchesSearch = nombre.includes(input);
+    const matchesCategory = currentCategory=== "Todos" || category===currentCategory;
+    card.parentElement.style.display = (matchesSearch && matchesCategory) ? "block" : "none";
+  });
+}
+
+buildCategoryButtons();
 
 discountCodeInput.addEventListener("input", () => {
   discountPercent = 0;
@@ -1457,18 +1529,7 @@ document.body.classList.remove("cart-open");
 }
 
 function buscar(){
-let input = document.getElementById("search").value.toLowerCase();
-let productos = document.querySelectorAll(".product-card");
-
-productos.forEach(card=>{
-let nombre = card.querySelector("h6").textContent.toLowerCase();
-
-if(nombre.includes(input)){
-card.parentElement.style.display = "block";
-}else{
-card.parentElement.style.display = "none";
-}
-});
+  filterProducts();
 }
 </script>
 
