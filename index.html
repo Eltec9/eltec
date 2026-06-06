@@ -61,6 +61,36 @@ background:rgba(0,0,0,0.4);display:none;
 }
 .overlay.show{display:block;}
 
+.image-modal{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.9);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  z-index:2000;
+}
+.image-modal.show{display:flex;}
+.image-modal img{
+  max-width:90%;
+  max-height:90%;
+  object-fit:contain;
+  border:2px solid #fff;
+  border-radius:8px;
+}
+.image-modal .close-img{
+  position:absolute;
+  top:16px;
+  right:16px;
+  color:#fff;
+  font-size:32px;
+  cursor:pointer;
+  user-select:none;
+}
+
 body.cart-open .carousel-control-prev,
 body.cart-open .carousel-control-next {
   display: none !important;
@@ -80,6 +110,10 @@ body.cart-open .carousel-control-next {
 <body>
 
 <div id="overlay" class="overlay" onclick="closeCart()"></div>
+<div id="imageModal" class="image-modal" onclick="closeImageModal()">
+  <span class="close-img" onclick="closeImageModal()">×</span>
+  <img id="imageModalImg" src="" alt="Imagen ampliada" onclick="event.stopPropagation()">
+</div>
 
 <div id="contenido">
 
@@ -1355,7 +1389,7 @@ function getCategory(name){
   if(lower.includes("parlante") || lower.includes("camara") || lower.includes("microfono")) return "Audio";
   if(lower.includes("pistola") || lower.includes("cortadora") || lower.includes("termo") || lower.includes("estufa") || lower.includes("termomate")) return "Electrónica";
   if(lower.includes("lampara") || lower.includes("tira led")) return "Iluminación";
-  if(lower.includes("pilas")) return "Accesorios";
+  if(lower.includes("pilas")) return "pilas";
   return "Otros";
 }
 
@@ -1384,6 +1418,14 @@ function buildCategoryButtons(){
     bar.appendChild(btn);
   });
 }
+
+document.querySelectorAll(".card-img-top").forEach(img=>{
+  img.style.cursor = "pointer";
+  img.addEventListener("click", ()=>{
+    const name = img.closest(".card").querySelector("h6").textContent || "Imagen";
+    openImageModal(img.src, name);
+  });
+});
 
 function updateCategoryButtons(){
   document.querySelectorAll("#categoryBar .category-btn").forEach(btn=>{
@@ -1526,6 +1568,18 @@ function closeCart(){
 panel.classList.remove("open");
 overlay.classList.remove("show");
 document.body.classList.remove("cart-open");
+}
+
+function openImageModal(src, alt){
+  const modal = document.getElementById("imageModal");
+  const modalImg = document.getElementById("imageModalImg");
+  modalImg.src = src;
+  modalImg.alt = alt;
+  modal.classList.add("show");
+}
+
+function closeImageModal(){
+  document.getElementById("imageModal").classList.remove("show");
 }
 
 function buscar(){
