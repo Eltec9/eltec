@@ -178,6 +178,34 @@ body.cart-open .carousel-control-next {
 <button class="btn btn-primary add" data-name="Velador 6 en 1" data-price="24800" data-img="img/velador6en1.png">Agregar</button>
 </div></div></div>
 
+<!-- Lampara -->
+<div class="col-md-3"><div class="card product-card">
+<div id="lamparaIluminacion" class="carousel slide">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="img/Lampara.jpeg" class="card-img-top">
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button"
+          data-bs-target="#lamparaIluminacion" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button"
+          data-bs-target="#lamparaIluminacion" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<div class="card-body text-center">
+<h6>Lámpara</h6>
+<p class="price">$14500</p>
+<input type="number" value="1" class="form-control qty-input mb-2">
+<button class="btn btn-primary add" data-name="Lámpara" data-price="14500" data-img="img/Lampara.jpeg">Agregar</button>
+</div></div></div>
+
 <!-- 2 -->
 <div class="col-md-3"><div class="card product-card">
 <div id="auricularesA6S" class="carousel slide">
@@ -1388,7 +1416,7 @@ function getCategory(name){
   if(lower.includes("cable") || lower.includes("usb") || lower.includes("hdmi") || lower.includes("cargador")) return "Cables";
   if(lower.includes("parlante") || lower.includes("camara") || lower.includes("microfono")) return "Audio";
   if(lower.includes("pistola") || lower.includes("cortadora") || lower.includes("termo") || lower.includes("estufa") || lower.includes("termomate")) return "Electrónica";
-  if(lower.includes("lampara") || lower.includes("tira led")) return "Iluminación";
+  if(lower.includes("velador") || lower.includes("lampara") || lower.includes("tira led")) return "Iluminación";
   if(lower.includes("pilas")) return "pilas";
   return "Otros";
 }
