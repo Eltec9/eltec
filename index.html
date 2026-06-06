@@ -92,7 +92,7 @@ background:rgba(0,0,0,0.4);display:none;
         <button class="btn btn-primary w-100" id="applyDiscountBtn">Aplicar código</button>
       </div>
       <div class="col-md-3">
-        <div id="discountMessage" class="text-success"></div>
+        <div id="discountMessage" style="display:none;"></div>
       </div>
     </div>
   </div>
@@ -1643,6 +1643,7 @@ document.getElementById("applyDiscountBtn").onclick = () => {
     msgEl.classList.add("text-danger");
   }
 
+  msgEl.style.display = "block";
   update();
 };
 
