@@ -1394,7 +1394,10 @@ function getCategory(name){
   if(lower.includes("marcador")) return "Marcadores";
   if(lower.includes("cabezal")) return "Cabezales";
   if(lower.includes("termo") || lower.includes("termomate")) return "Termos";
-  if(lower.includes("pistola") || lower.includes("cortadora") || lower.includes("estufa")) return "Electrónica";
+  if(lower.includes("estufa")) return "Estufas";
+  if(lower.includes("cortadora")) return "Cortadoras de pelo";
+  if(lower.includes("pelota") || lower.includes("futbol")) return "Futbol";
+  if(lower.includes("pistola")) return "Electrónica";
   if(lower.includes("velador") || lower.includes("lampara") || lower.includes("tira led")) return "Iluminación";
   if(lower.includes("pilas")) return "pilas";
   return "Otros";
@@ -1408,7 +1411,7 @@ function buildCategoryButtons(){
     return acc;
   }, {});
   counts["Todos"] = cards.length;
-  const order = ["Todos","Balanzas","Cuchillas","Linternas","Auriculares","Cables","Audio","Marcadores","Cabezales","Termos","Iluminación","Electrónica","Accesorios","Gaming","Otros"];
+  const order = ["Todos","Balanzas","Cuchillas","Linternas","Auriculares","Cables","Audio","Marcadores","Cabezales","Termos","Estufas","Cortadoras de pelo","Futbol","Iluminación","Electrónica","Accesorios","Gaming","Otros"];
   const categories = order.filter(c=>counts[c]).concat(Object.keys(counts).filter(c=>!order.includes(c)));
   const bar = document.getElementById("categoryBar");
   bar.innerHTML = "";
