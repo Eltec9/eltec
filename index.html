@@ -1626,10 +1626,21 @@ function formatPrice(n){return n.toLocaleString("es-AR");}
 
 let cart=[];
 let discountPercent = 0;
+const discountMessage = document.getElementById("discountMessage");
+const discountCodeInput = document.getElementById("discountCode");
+
+discountMessage.style.display = "none";
+discountMessage.textContent = "";
+
+discountCodeInput.addEventListener("input", () => {
+  discountPercent = 0;
+  discountMessage.style.display = "none";
+  discountMessage.textContent = "";
+});
 
 document.getElementById("applyDiscountBtn").onclick = () => {
-  let code = document.getElementById("discountCode").value.trim().toUpperCase();
-  let msgEl = document.getElementById("discountMessage");
+  let code = discountCodeInput.value.trim().toUpperCase();
+  let msgEl = discountMessage;
 
   if(code === "ELTEC5"){
     discountPercent = 5;
