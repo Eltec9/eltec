@@ -58,6 +58,16 @@
 .qty-input{width:70px;margin:auto;text-align:center;}
 .price{color:#1e6fff;font-weight:bold;font-size:18px;}
 
+.color-options{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;}
+.color-chip{
+  width:18px;height:18px;border-radius:50%;border:2px solid transparent;
+  padding:0;cursor:pointer;box-shadow:inset 0 0 0 1px rgba(0,0,0,0.12);
+  transition:transform .15s, border-color .15s;
+}
+.color-chip:hover{transform:scale(1.08);}
+.color-chip.active{border-color:#0d6efd;transform:scale(1.08);}
+.color-selected-label{font-size:12px;display:block;}
+
 .cart-float{
 position:fixed;bottom:20px;right:20px;
 background:#0d6efd;color:white;width:60px;height:60px;
@@ -351,8 +361,16 @@ body.cart-open .carousel-control-next {
 <div class="card-body text-center">
 <h6>Auriculares P9</h6>
 <p class="price">$10000</p>
+<div class="text-muted small mb-1">Color disponible</div>
+<div class="color-options mb-2" data-product="p9">
+  <button type="button" class="color-chip active" data-color-name="Negro" data-slide="0" data-img="img/P9.jpeg" style="background:#111111;" title="Negro"></button>
+  <button type="button" class="color-chip" data-color-name="Rosa" data-slide="1" data-img="img/P9rosa.png" style="background:#f48fb1;" title="Rosa"></button>
+  <button type="button" class="color-chip" data-color-name="Azul" data-slide="2" data-img="img/P9azul.png" style="background:#3b82f6;" title="Azul"></button>
+  <button type="button" class="color-chip" data-color-name="Verde" data-slide="3" data-img="img/P9verde.png" style="background:#22c55e;" title="Verde"></button>
+</div>
+<small class="color-selected-label text-muted">Color seleccionado: Negro</small>
 <input type="number" value="1" class="form-control qty-input mb-2">
-<button class="btn btn-primary add" data-name="Auriculares P9" data-price="10000" data-img="img/P9.jpeg">Agregar</button>
+<button class="btn btn-primary add" data-base-name="Auriculares P9" data-name="Auriculares P9 (Negro)" data-price="10000" data-img="img/P9.jpeg">Agregar</button>
 </div></div></div>
 
 <!-- 7 -->
@@ -1593,6 +1611,34 @@ else cart.push({name,price,qty,img});
 update();
 };
 });
+
+function setupColorSelectors(){
+  document.querySelectorAll('.color-options').forEach(group=>{
+    const card = group.closest('.card');
+    const chips = group.querySelectorAll('.color-chip');
+    const label = card?.querySelector('.color-selected-label');
+    const addBtn = card?.querySelector('.add');
+    const carouselItems = card?.querySelectorAll('.carousel-item') || [];
+
+    function applyColor(chip){
+      chips.forEach(btn=>btn.classList.toggle('active', btn === chip));
+      const index = Number(chip.dataset.slide || 0);
+      carouselItems.forEach((item, i)=>item.classList.toggle('active', i === index));
+
+      if(label) label.textContent = `Color seleccionado: ${chip.dataset.colorName}`;
+      if(addBtn){
+        addBtn.dataset.img = chip.dataset.img || addBtn.dataset.img;
+        const baseName = addBtn.dataset.baseName || addBtn.dataset.name;
+        addBtn.dataset.name = `${baseName} (${chip.dataset.colorName})`;
+      }
+    }
+
+    chips.forEach(chip=>chip.addEventListener('click', ()=>applyColor(chip)));
+    if(chips.length) applyColor(chips[0]);
+  });
+}
+
+setupColorSelectors();
 
 function update(){
 let list=document.getElementById("list");
