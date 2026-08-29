@@ -548,6 +548,34 @@ body.cart-open .carousel-control-next {
 <button class="btn btn-primary add" data-name="Cargador Samsung" data-price="10000" data-img="img/CargadorSamsung1.jpeg">Agregar</button>
 </div></div></div>
 
+<!-- 24 -->
+<div class="col-md-3"><div class="card product-card">
+<div id="marcadores36" class="carousel slide">
+  <div class="carousel-inner">
+
+    <div class="carousel-item active">
+      <img src="img/planchadepelo.jpeg" class="card-img-top">
+    </div>
+
+  </div>
+
+  <button class="carousel-control-prev" type="button"
+          data-bs-target="#marcadores36" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+
+  <button class="carousel-control-next" type="button"
+          data-bs-target="#marcadores36" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<div class="card-body text-center">
+<h6>Plancha de pelo</h6>
+<p class="price">$19.500</p>
+<input type="number" value="1" class="form-control qty-input mb-2">
+<button class="btn btn-primary add" data-name="Plancha de pelo" data-price="19500" data-img="img/planchadepelo.jpeg">Agregar</button>
+</div></div></div>
+
 <!-- 11 -->
 <div class="col-md-3"><div class="card product-card">
 <div id="cuchilla8" class="carousel slide">
@@ -1688,6 +1716,8 @@ function formatPrice(n){return n.toLocaleString("es-AR");}
 let cart=[];
 let discountPercent = 0;
 const CART_STORAGE_KEY = "eltec-cart";
+const DISCOUNT_CODE = "ELTEC5";
+const DISCOUNT_PERCENT = 5;
 const discountMessage = document.getElementById("discountMessage");
 const discountCodeInput = document.getElementById("discountCode");
 const applyDiscountBtn = document.getElementById("applyDiscountBtn");
